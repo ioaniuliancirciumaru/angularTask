@@ -1,1 +1,71 @@
-<p>patient works!</p>
+<div class="row">
+    <div class="col s12">
+      <div class="card teal">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s5">
+                <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="patientService.selectedPatient._id">
+                    <div class="row">
+                        <div class="input-filed col s12">
+                            <label>First Name: 
+                                <label class="red-text">*</label>
+                            </label>
+                            <input type="text" name="firstName" #name="ngModel" [(ngModel)]="patientService.selectedPatient.firstName" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="input-filed col s12">
+                            <label>Last Name: 
+                                <label class="red-text">*</label>
+                            </label>
+                            <input type="text" name="lastName" #name="ngModel" [(ngModel)]="patientService.selectedPatient.lastName" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="input-filed col s12">
+                            <label>Date of Birth: </label>
+                            <input type="number" name="dateOfBirth" #name="ngModel" [(ngModel)]="patientService.selectedPatient.dateOfBirth" placeholder="Enter Date of Birth">
+                        </div>
+                        <div class="input-filed col s12">
+                            <label>Gender: </label>
+                            <input type="text" name="gender" #name="ngModel" [(ngModel)]="patientService.selectedPatient.gender" placeholder="Enter Gender">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn btn-custom right" type="button" (click)="resetForm(patientForm)">Reset</button>
+                            <button class="btn btn-custom left" type="submit" [disabled]="!patientForm.valid">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th></th>
+                        </tr>
+                        <tr *ngFor="let pat of patientService.patient">
+                            <td>{{pat.firstName}}</td>
+                            <td>{{pat.lastName}}</td>
+                            <td>{{pat.dateOfBirth}}</td>
+                            <td>{{pat.gender}}</td>
+                            <td>
+                                <a class="action-btn" (click)="onEdit(pat)">
+                                    <i class="material-icons white-icon">edit</i>
+                                </a>
+                                <a class="action-btn" (click)="onDelete(pat._id,patientForm)">
+                                    <i class="material-icons white-icon">delete</i>
+                                </a>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
