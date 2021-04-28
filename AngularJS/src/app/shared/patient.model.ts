@@ -2,6 +2,6 @@ export class Patient {
     _id: string;
     firstName: string;
     lastName: string;
-    dateOfBirth: number;
+    dateOfBirth: Date;
     gender: string;
 }

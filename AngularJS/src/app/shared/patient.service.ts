@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/toPromise';
 
 import { Patient } from './patient.model';
 
@@ -15,7 +13,7 @@ export class PatientService {
   patient: Patient[];
   readonly baseURL = 'http://localhost:3000/patients';
 
-  constructor(public http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   postPatient(pat: Patient) {
     return this.http.post(this.baseURL, pat);

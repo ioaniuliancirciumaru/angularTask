@@ -16,6 +16,8 @@ export class PatientComponent implements OnInit {
 
   constructor(public patientService: PatientService) { }
 
+  
+
   ngOnInit() {
     this.resetForm();
     this.refreshPatientList();
@@ -39,6 +41,7 @@ export class PatientComponent implements OnInit {
         this.resetForm(form);
         this.refreshPatientList();
         M.toast({ html: 'Saved successfully', classes: 'rounded' });
+        
       });
     }
     else {
@@ -56,8 +59,8 @@ export class PatientComponent implements OnInit {
     });
   }
 
-  onEdit(emp: Patient) {
-    this.patientService.selectedPatient = emp;
+  onEdit(pat: Patient) {
+    this.patientService.selectedPatient = pat;
   }
 
   onDelete(_id: string, form: NgForm) {

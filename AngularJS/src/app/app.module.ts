@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PatientComponent } from './patient/patient.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientComponent
+    PatientComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
